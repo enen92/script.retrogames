@@ -1,0 +1,77 @@
+# Kodi Media Center language file
+# Addon Name: RetroGames
+# Addon id: script.retrogames
+# Addon Provider: enen92
+msgid ""
+msgstr ""
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#settings labels
+
+msgctxt "#30000"
+msgid "RetroGames"
+msgstr "RetroGames"
+
+msgctxt "#30001"
+msgid "[B]DOSBOX[/B] (Archive.org)"
+msgstr "[B]DOSBOX[/B] (Archive.org)"
+
+msgctxt "#30002"
+msgid "[COLOR blue][B]Search Games[/B][/COLOR]"
+msgstr "[COLOR blue][B]Procurar Jogos[/B][/COLOR]"
+
+msgctxt "#30003"
+msgid "[COLOR blue][B]Next Page >>[/B][/COLOR]"
+msgstr "[COLOR blue][B]Próxima Página >>[/B][/COLOR]"
+
+msgctxt "#30004"
+msgid "Couldn't open URL"
+msgstr "Não conseguiu abrir o URL"
+
+msgctxt "#30005"
+msgid "The ROM has been downloaded to "
+msgstr "A ROM foi transferida para "
+
+msgctxt "#30006"
+msgid "Have fun!"
+msgid "Diverte-te!"
+
+msgctxt "#30007"
+msgid "Downloading ROM...\n"
+msgid "Transferindo ROM...\n"
+
+msgctxt "#30008"
+msgid "Search String:"
+msgid "Parâmetro de pesquisa"
+
+msgctxt "#30009"
+msgid "Read Game Description"
+msgid "Ler descrição da ROM"
+
+msgctxt "#30010"
+msgid "Download Folder"
+msgid "Pasta de Download"
+
+msgctxt "#30011"
+msgid "Image metadata resolution"
+msgid "Resolução das imagens"
+
+msgctxt "#30012"
+msgid "Force to Media Info on confluence"
+msgid "Forçar tipo de vista Media Info na skin confluence"
+
+msgctxt "#30013"
+msgid "Force a view ID (enter skin view ID)"
+msgid "Forçar um tipo de vista (introduzir skin view ID)"
+
+
+
+
+
+ 

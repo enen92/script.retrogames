@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.retrogames" version="1.0.0" name="RetroGames" provider-name="enen92">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource"  library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">RetroGames source for Kodi</summary>
+    <summary lang="pt">Fonte de jogos para o Kodi</summary>
+    <description lang="en">Download retrogames for retroplayer</description> 
+    <description lang="pt">Transfere jogos retro para o retroplayer</description> 
+    <language></language>
+    <platform>all</platform>
+    <license>I dont care 3.0</license>
+    <forum></forum>
+    <website></website>
+    <source></source>
+  </extension>
+</addon>

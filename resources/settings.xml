@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+   <category label="General">
+      <setting id="download-folder" type="folder" label="30010" default=""/>
+      <setting id="img-resolution" type="enum" values="High|Low" label="30011" default="0" enable="True"/>
+      <setting id="confluence-res" type="bool" label="30012" default="true" />
+      <setting id="view-id" type="number" label="30013"  default=""/>
+   </category>
+</settings>
