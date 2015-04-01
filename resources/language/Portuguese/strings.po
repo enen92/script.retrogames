@@ -40,35 +40,48 @@ msgstr "A ROM foi transferida para "
 
 msgctxt "#30006"
 msgid "Have fun!"
-msgid "Diverte-te!"
+msgstr "Diverte-te!"
 
 msgctxt "#30007"
 msgid "Downloading ROM...\n"
-msgid "Transferindo ROM...\n"
+msgstr "Transferindo ROM...\n"
 
 msgctxt "#30008"
 msgid "Search String:"
-msgid "Parâmetro de pesquisa"
+msgstr "Parâmetro de pesquisa"
 
 msgctxt "#30009"
 msgid "Read Game Description"
-msgid "Ler descrição da ROM"
+msgstr "Ler descrição da ROM"
 
 msgctxt "#30010"
 msgid "Download Folder"
-msgid "Pasta de Download"
+msgstr "Pasta de Download"
 
 msgctxt "#30011"
 msgid "Image metadata resolution"
-msgid "Resolução das imagens"
+msgstr "Resolução das imagens"
 
 msgctxt "#30012"
 msgid "Force to Media Info on confluence"
-msgid "Forçar tipo de vista Media Info na skin confluence"
+msgstr "Forçar tipo de vista Media Info na skin confluence"
 
 msgctxt "#30013"
 msgid "Force a view ID (enter skin view ID)"
-msgid "Forçar um tipo de vista (introduzir skin view ID)"
+msgstr "Forçar um tipo de vista (introduzir skin view ID)"
+
+msgctxt "#30014"
+msgid "[B]Sega Genesis[/B] (Archive.org)"
+msgstr "[B]Sega Genesis[/B] (Archive.org)"
+
+
+msgctxt "#30015"
+msgid "[B]Sega Game Gear[/B] (Archive.org)"
+msgstr "[B]Sega Game Gear[/B] (Archive.org)"
+
+msgctxt "#30016"
+msgid "[B]Atari 2600[/B] (Archive.org)"
+msgstr "[B]Atari 2600[/B] (Archive.org)"
 
 
 

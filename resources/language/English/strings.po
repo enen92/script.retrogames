@@ -70,6 +70,17 @@ msgctxt "#30013"
 msgid "Force a view ID (enter skin ID)"
 ""
 
+msgctxt "#30014"
+msgid "[B]Sega Genesis[/B] (Archive.org)"
+""
+
+msgctxt "#30015"
+msgid "[B]Sega Game Gear[/B] (Archive.org)"
+""
+
+msgctxt "#30016"
+msgid "[B]Atari 2600[/B] (Archive.org)"
+""
 
 
 
