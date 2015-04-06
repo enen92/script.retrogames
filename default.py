@@ -229,7 +229,6 @@ def dos_box(url):
 				if year_opt:
 					year = int('19'+str(year_opt[0]))
 				
-				print gameurl	
 				if title:
 					infolab = { "Title": title[0],"Plot": gameplot, "Year":year, "Genre":genre, "Studio":author,"Director":author, "Writer":author}
 					addGame('[B]'+title[0]+'[/B]',gameurl,3,iconimage,totalmatch,iconimage,infolab)#os.path.join(artfolder,'dosbox.jpg'))
