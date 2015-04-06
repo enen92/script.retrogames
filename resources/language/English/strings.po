@@ -82,6 +82,10 @@ msgctxt "#30016"
 msgid "[B]Atari 2600[/B] (Archive.org)"
 ""
 
+msgctxt "#30017"
+msgid "Download zip package ("
+""
+
 
 
 

@@ -330,7 +330,7 @@ def get_zip_info(url,iconimage):
 		match = re.compile('<div class="down-size">(.+?)</div>\n.+?<a href="(.+?)">ZIP</a>').findall(page_source)
 		for size,urltmp in match:
 			if 'http://' not in urltmp or 'https://' not in urltmp: urltmp = 'http://archive.org'+urltmp
-			addDir('Download zip package ('+size+')',urltmp,6,iconimage,1,'',False)
+			addDir(translate(30017)+size+')',urltmp,6,iconimage,1,'',False)
 			
 def download_zip_package(name,url,iconimage):
 	if selfAddon.getSetting('download-folder') == '':
