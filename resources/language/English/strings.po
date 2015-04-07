@@ -81,11 +81,17 @@ msgid "[B]Sega Game Gear[/B] (Archive.org)"
 msgctxt "#30016"
 msgid "[B]Atari 2600[/B] (Archive.org)"
 ""
-
 msgctxt "#30017"
-msgid "Download zip package ("
+msgid "teste"
 ""
 
+msgctxt "#30018"
+msgid "Letter"
+""
+
+msgctxt "#30020"
+msgid "[B]Navigate to letter...[/B]"
+""
 
 
 

@@ -17,27 +17,27 @@ from resources.downloadtools import *
 
 
 def main_menu():
-	addDir(translate(30001),'https://archive.org/details/softwarelibrary_msdos_games?&sort=-downloads&page=1',1, os.path.join(artfolder,'dosboxicon.png'),1,os.path.join(artfolder,'dosbox.jpg'))
-	addDir(translate(30014),'https://archive.org/details/sega_genesis_library?&sort=-downloads&page=1',1,'http://thegamesdb.net/banners/platform/consoleart/18.png',1,'http://thegamesdb.net/banners/platform/fanart/18-3.jpg')
-	addDir(translate(30015),'https://archive.org/details/gamegear_library?&sort=-downloads&page=1',1,'http://thegamesdb.net/banners/platform/consoleart/20.png',1,'http://thegamesdb.net/banners/platform/fanart/20-2.jpg')
-	addDir(translate(30016),'https://archive.org/details/atari_2600_library?&sort=-downloads&page=1',1,'http://psx-scene.com/forums/attachments/f190/35672d1339560883-%5Bps3%5D-emulator-downloads-w-complete-info-atari-2600.png',1,'http://thegamesdb.net/banners/platform/fanart/22-3.jpg')
-	addDir('[B]Vtech Criativision[/B] (Archive.org)','https://archive.org/details/vtech_creativision_library?&sort=-downloads&page=1',1,'http://www.atomicfe.com/ladite/Images/creativision.png',1,'http://www.videogameconsolelibrary.com/images/1980s/81_VTech_CreatiVision/vtech_creativision_15.jpg')
-	addDir('[B]Vtech Socrates[/B] (Archive.org)','https://archive.org/details/socrates_library?&sort=-downloads&page=1',1,'http://www.museo8bits.es/wiki/images/thumb/0/08/VTech_Socrates_Saitout_01.jpg/300px-VTech_Socrates_Saitout_01.jpg',1,'http://media.engadget.com/img/product/19/f4r/socrates-1h3m-800.jpg')
-	addDir("[B]Super A'can[/B] (Archive.org)",'https://archive.org/details/superacan_library?&sort=-downloads&page=1',1,'http://static.giantbomb.com/uploads/scale_small/0/26/2392023-superacan.jpg',1,'http://upload.wikimedia.org/wikipedia/commons/2/2c/Super-ACan-Console-set-h.jpg')
-	addDir("[B]Sega Master System[/B] (Archive.org)",'https://archive.org/details/sega_sms_library?&sort=-downloads&page=1',1,'http://clipart-fr.com/en/data/icons/set_01/icones_00206.png',1,'http://cloud-4.steamusercontent.com/ugc/46493803785332279/AA4F9D55545B2C15A21C94FA21193EA034F4BC6E/')
-	addDir("[B]Neo Geo Pocket[/B] (Archive.org)",'https://archive.org/details/ngp_library?&sort=-downloads&page=1',1,'http://thegamesdb.net/banners/platform/consoleart/4922.png',1,'http://i.imgur.com/4dPue.jpg')
-	addDir("[B]Atari 7800[/B] (Archive.org)",'https://archive.org/details/atari_7800_library?&sort=-downloads&page=1',1,'http://jscustom.theoldcomputer.com/images/manufacturers_systems/Atari/7800/306965atari-7800.system.png',1,'http://thegamesdb.net/banners/platform/fanart/27-1.jpg')
-	addDir("[B]Atari 5200[/B] (Archive.org)",'https://archive.org/details/atari_5200_library?&sort=-downloads&page=1',1,'http://thegamesdb.net/banners/_platformviewcache/platform/boxart/26-1.jpg',1,'http://upload.wikimedia.org/wikipedia/commons/e/e6/Atari_5200_-_trojandan_14871272.jpg')
-	addDir("[B]Amstrad Gx-4000[/B] (Archive.org)",'https://archive.org/details/gx4000_library?&sort=-downloads&page=1',1,'http://www.pugo.org/media/collection/console/amstrad_gx4000.png',1,'http://fc07.deviantart.net/fs71/i/2012/058/4/9/amstrad_gx4000_by_mellergaard-d4r5bil.jpg')
-	addDir("[B]Sega SG-1000[/B] (Archive.org)",'https://archive.org/details/sg_1000_library?&sort=-downloads&page=1',1,'http://img.gamefaqs.net/box/7/1/6/307716_front.jpg',1,'http://upload.wikimedia.org/wikipedia/commons/b/b8/Sega_SG-1000_Bock.jpg')
-	addDir("[B]Megaduck[/B] (Archive.org)",'https://archive.org/details/megaduck_library?&sort=-downloads&page=1',1,'https://archive.org/services/img/megaduck_library',1,'http://i.ytimg.com/vi/qHT4n1kgqyU/maxresdefault.jpg')
-	addDir("[B]Mattel Intellivision[/B] (Archive.org)",'https://archive.org/details/intellivision?&sort=-downloads&page=1',1,'http://thegamesdb.net/banners/_platformviewcache/platform/boxart/32-1.jpg',1,'http://thegamesdb.net/banners/platform/fanart/32-1.jpg')
-	addDir("[B]Mattel Aquarius[/B] (Archive.org)",'https://archive.org/details/mattelaquarius?&sort=-downloads&page=1',1,'http://oldcomputers.net/pics/aquarius-expander.jpg',1,'http://www.zock.com/8-Bit/Ad_Aquarius.JPG')
-	addDir("[B]The Fairchild Channel F[/B] (Archive.org)",'https://archive.org/details/channelf_library?&sort=-downloads&page=1',1,'http://www.videogames.org/html/images/ChannelF.gif',1,'http://upload.wikimedia.org/wikipedia/commons/5/56/Fairchild-Channel-F-System-II-Console.jpg')
-	addDir("[B]APF-MP1000[/B] (Archive.org)",'https://archive.org/details/apfm1000_library?&sort=-downloads&page=1',1,'http://hcvgm.org/Images/MP1000S.jpg',1,'http://atariage.com/forums/uploads/monthly_11_2010/post-10944-128979518522.jpg')
-	addDir("[B]Emerson Arcadia[/B] (Archive.org)",'https://archive.org/details/emerson_arcadia_library?&sort=-downloads&page=1',1,'http://www.emuunlim.com/doteaters/Arcadia.gif',1,'http://i.ytimg.com/vi/j4o31uRZs3w/maxresdefault.jpg')
-	addDir("[B]Entex Adventure Vision[/B] (Archive.org)",'https://archive.org/details/adventurevision_library?&sort=-downloads&page=1',1,'https://c2.staticflickr.com/4/3273/5832604040_46164b3b04.jpg',1,'http://www.miniarcade.com/ebay/adventurevision3.jpg')
-	addDir("[B]Epoch Game Pocket Computer[/B] (Archive.org)",'https://archive.org/details/gamepocket_library?&sort=-downloads&page=1',1,'https://rfmp.files.wordpress.com/2011/06/250px-epoch_game_pocket_computer.jpg',1,'http://www.chrismcovell.com/GamePokekon/Epoch_System.jpg')
+	addDir(translate(30001),'https://archive.org/details/softwarelibrary_msdos_games?&sort='+get_sort_method()+'&page=1',1, os.path.join(artfolder,'dosboxicon.png'),1,os.path.join(artfolder,'dosbox.jpg'))
+	addDir(translate(30014),'https://archive.org/details/sega_genesis_library?&sort='+get_sort_method()+'&page=1',1,'http://thegamesdb.net/banners/platform/consoleart/18.png',1,'http://thegamesdb.net/banners/platform/fanart/18-3.jpg')
+	addDir(translate(30015),'https://archive.org/details/gamegear_library?&sort='+get_sort_method()+'&page=1',1,'http://thegamesdb.net/banners/platform/consoleart/20.png',1,'http://thegamesdb.net/banners/platform/fanart/20-2.jpg')
+	addDir(translate(30016),'https://archive.org/details/atari_2600_library?&sort='+get_sort_method()+'&page=1',1,'http://psx-scene.com/forums/attachments/f190/35672d1339560883-%5Bps3%5D-emulator'+get_sort_method()+'-w-complete-info-atari-2600.png',1,'http://thegamesdb.net/banners/platform/fanart/22-3.jpg')
+	addDir('[B]Vtech Criativision[/B] (Archive.org)','https://archive.org/details/vtech_creativision_library?&sort='+get_sort_method()+'&page=1',1,'http://www.atomicfe.com/ladite/Images/creativision.png',1,'http://www.videogameconsolelibrary.com/images/1980s/81_VTech_CreatiVision/vtech_creativision_15.jpg')
+	addDir('[B]Vtech Socrates[/B] (Archive.org)','https://archive.org/details/socrates_library?&sort='+get_sort_method()+'&page=1',1,'http://www.museo8bits.es/wiki/images/thumb/0/08/VTech_Socrates_Saitout_01.jpg/300px-VTech_Socrates_Saitout_01.jpg',1,'http://media.engadget.com/img/product/19/f4r/socrates-1h3m-800.jpg')
+	addDir("[B]Super A'can[/B] (Archive.org)",'https://archive.org/details/superacan_library?&sort='+get_sort_method()+'&page=1',1,'http://static.giantbomb.com/uploads/scale_small/0/26/2392023-superacan.jpg',1,'http://upload.wikimedia.org/wikipedia/commons/2/2c/Super-ACan-Console-set-h.jpg')
+	addDir("[B]Sega Master System[/B] (Archive.org)",'https://archive.org/details/sega_sms_library?&sort='+get_sort_method()+'&page=1',1,'http://clipart-fr.com/en/data/icons/set_01/icones_00206.png',1,'http://cloud-4.steamusercontent.com/ugc/46493803785332279/AA4F9D55545B2C15A21C94FA21193EA034F4BC6E/')
+	addDir("[B]Neo Geo Pocket[/B] (Archive.org)",'https://archive.org/details/ngp_library?&sort='+get_sort_method()+'&page=1',1,'http://thegamesdb.net/banners/platform/consoleart/4922.png',1,'http://i.imgur.com/4dPue.jpg')
+	addDir("[B]Atari 7800[/B] (Archive.org)",'https://archive.org/details/atari_7800_library?&sort='+get_sort_method()+'&page=1',1,'http://jscustom.theoldcomputer.com/images/manufacturers_systems/Atari/7800/306965atari-7800.system.png',1,'http://thegamesdb.net/banners/platform/fanart/27-1.jpg')
+	addDir("[B]Atari 5200[/B] (Archive.org)",'https://archive.org/details/atari_5200_library?&sort='+get_sort_method()+'&page=1',1,'http://thegamesdb.net/banners/_platformviewcache/platform/boxart/26-1.jpg',1,'http://upload.wikimedia.org/wikipedia/commons/e/e6/Atari_5200_-_trojandan_14871272.jpg')
+	addDir("[B]Amstrad Gx-4000[/B] (Archive.org)",'https://archive.org/details/gx4000_library?&sort='+get_sort_method()+'&page=1',1,'http://www.pugo.org/media/collection/console/amstrad_gx4000.png',1,'http://fc07.deviantart.net/fs71/i/2012/058/4/9/amstrad_gx4000_by_mellergaard-d4r5bil.jpg')
+	addDir("[B]Sega SG-1000[/B] (Archive.org)",'https://archive.org/details/sg_1000_library?&sort='+get_sort_method()+'&page=1',1,'http://img.gamefaqs.net/box/7/1/6/307716_front.jpg',1,'http://upload.wikimedia.org/wikipedia/commons/b/b8/Sega_SG-1000_Bock.jpg')
+	addDir("[B]Megaduck[/B] (Archive.org)",'https://archive.org/details/megaduck_library?&sort='+get_sort_method()+'&page=1',1,'https://archive.org/services/img/megaduck_library',1,'http://i.ytimg.com/vi/qHT4n1kgqyU/maxresdefault.jpg')
+	addDir("[B]Mattel Intellivision[/B] (Archive.org)",'https://archive.org/details/intellivision?&sort='+get_sort_method()+'&page=1',1,'http://thegamesdb.net/banners/_platformviewcache/platform/boxart/32-1.jpg',1,'http://thegamesdb.net/banners/platform/fanart/32-1.jpg')
+	addDir("[B]Mattel Aquarius[/B] (Archive.org)",'https://archive.org/details/mattelaquarius?&sort='+get_sort_method()+'&page=1',1,'http://oldcomputers.net/pics/aquarius-expander.jpg',1,'http://www.zock.com/8-Bit/Ad_Aquarius.JPG')
+	addDir("[B]The Fairchild Channel F[/B] (Archive.org)",'https://archive.org/details/channelf_library?&sort='+get_sort_method()+'&page=1',1,'http://www.videogames.org/html/images/ChannelF.gif',1,'http://upload.wikimedia.org/wikipedia/commons/5/56/Fairchild-Channel-F-System-II-Console.jpg')
+	addDir("[B]APF-MP1000[/B] (Archive.org)",'https://archive.org/details/apfm1000_library?&sort='+get_sort_method()+'&page=1',1,'http://hcvgm.org/Images/MP1000S.jpg',1,'http://atariage.com/forums/uploads/monthly_11_2010/post-10944-128979518522.jpg')
+	addDir("[B]Emerson Arcadia[/B] (Archive.org)",'https://archive.org/details/emerson_arcadia_library?&sort='+get_sort_method()+'&page=1',1,'http://www.emuunlim.com/doteaters/Arcadia.gif',1,'http://i.ytimg.com/vi/j4o31uRZs3w/maxresdefault.jpg')
+	addDir("[B]Entex Adventure Vision[/B] (Archive.org)",'https://archive.org/details/adventurevision_library?&sort='+get_sort_method()+'&page=1',1,'https://c2.staticflickr.com/4/3273/5832604040_46164b3b04.jpg',1,'http://www.miniarcade.com/ebay/adventurevision3.jpg')
+	addDir("[B]Epoch Game Pocket Computer[/B] (Archive.org)",'https://archive.org/details/gamepocket_library?&sort='+get_sort_method()+'&page=1',1,'https://rfmp.files.wordpress.com/2011/06/250px-epoch_game_pocket_computer.jpg',1,'http://www.chrismcovell.com/GamePokekon/Epoch_System.jpg')
 	
 	#Single packs
 	addDir("[B]Sinclair ZX Spectrum[/B] (Archive.org)",'https://archive.org/details/Sinclair_ZX_Spectrum_TOSEC_2012_04_23',5,'http://www.c64vsspectrum.com/spectrum48k_jpg.jpg',1,'http://thegamesdb.net/banners/platform/fanart/4913-1.jpg')
@@ -93,6 +93,8 @@ def dos_box(url):
 		matchgames = re.findall('<div class="item-ia"(.*?)<div class="C5"></div>',page_source,re.DOTALL)
 		totalmatch = len(matchgames)
 		if matchgames:
+		
+			
 			
 			#add costumized search url
 			if '_msdos_games' in url: 
@@ -157,7 +159,8 @@ def dos_box(url):
 				addDir(translate(30002),'https://archive.org/details/gamepocket_library?and[]=',2,'',1,console_fanart)
 				
 				
-				
+			#Navigate to letter
+			addDir('[COLOR blue]'+translate(30020)+'[/COLOR]',url,7,console_fanart,1,console_fanart)	
 				
 				
 				
@@ -229,7 +232,6 @@ def dos_box(url):
 				if year_opt:
 					year = int('19'+str(year_opt[0]))
 				
-				print gameurl	
 				if title:
 					infolab = { "Title": title[0],"Plot": gameplot, "Year":year, "Genre":genre, "Studio":author,"Director":author, "Writer":author}
 					addGame('[B]'+title[0]+'[/B]',gameurl,3,iconimage,totalmatch,iconimage,infolab)#os.path.join(artfolder,'dosbox.jpg'))
@@ -254,7 +256,6 @@ def dos_box(url):
 	
 def archive_resolver(url):
 	url = url.replace('/details/','/metadata/')
-	print url
 	source = json.load(urllib2.urlopen(url))
 	d1 = source["d1"]
 	dire = source["dir"]
@@ -330,7 +331,7 @@ def get_zip_info(url,iconimage):
 		match = re.compile('<div class="down-size">(.+?)</div>\n.+?<a href="(.+?)">ZIP</a>').findall(page_source)
 		for size,urltmp in match:
 			if 'http://' not in urltmp or 'https://' not in urltmp: urltmp = 'http://archive.org'+urltmp
-			addDir(translate(30017)+size+')',urltmp,6,iconimage,1,'',False)
+			addDir('Download zip package ('+size+')',urltmp,6,iconimage,1,'',False)
 			
 def download_zip_package(name,url,iconimage):
 	if selfAddon.getSetting('download-folder') == '':
@@ -344,6 +345,31 @@ def download_zip_package(name,url,iconimage):
 	destination_file = os.path.join(destination_folder,rom)
 	download_tools().Downloader(url,destination_file,translate(30007) + rom,translate(30000))
 	msgok(translate(30000),translate(30005) + destination_folder,translate(30006))
+	
+	
+def get_sort_method():
+	sorter = selfAddon.getSetting('sorter')
+	if sorter == '0': return '-downloads'
+	elif sorter == '1': return 'titleSorter'
+	elif sorter == '2': return '-publicdate'
+	elif sorter == '3': return '-date'
+	elif sorter == '4': return 'creatorSorter'
+	
+def navigate_to_letter(url):
+	alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+	choose=xbmcgui.Dialog().select(translate(30018),alphabet)
+	if choose > -1:
+		print "chosen letter",alphabet[choose]
+		match = re.compile('sort=(.+?)&').findall(url)
+		if match:
+			url = url.replace(match[0],'titleSorter')
+		if 'and[]=firstTitle' in url:
+			match = re.compile('firstTitle\:(.*)').findall(url)
+			if match:
+				url = url.replace('firstTitle:'+match[0],'firstTitle:'+alphabet[choose])
+		else:
+			url = url + '&and[]=firstTitle:' + alphabet[choose]
+		dos_box(url)
 	
 	
 def archive_search(url):
@@ -418,5 +444,6 @@ elif mode==3: archive_resolver(url)
 elif mode==4: read_details(name,url)
 elif mode==5: get_zip_info(url,iconimage)
 elif mode==6: download_zip_package(name,url,iconimage)
+elif mode==7: navigate_to_letter(url)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))

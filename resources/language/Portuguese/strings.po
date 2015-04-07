@@ -84,8 +84,18 @@ msgid "[B]Atari 2600[/B] (Archive.org)"
 msgstr "[B]Atari 2600[/B] (Archive.org)"
 
 msgctxt "#30017"
-msgid "Download zip package ("
-msgstr "Transferir pacote zip ("
+msgid "teste"
+msgstr "teste"
+
+msgctxt "#30018"
+msgid "Letter"
+msgstr "Letra"
+
+msgctxt "#30020"
+msgid "[B]Navigate to letter...[/B]"
+msgstr "[B]Ir para a letra...[/B]"
+
+
 
 
 

@@ -5,5 +5,6 @@
       <setting id="img-resolution" type="enum" values="High|Low" label="30011" default="0" enable="True"/>
       <setting id="confluence-res" type="bool" label="30012" default="true" />
       <setting id="view-id" type="number" label="30013"  default=""/>
+      <setting id="sorter" type="enum" values="Downloads|Title|DateArchieved|DatePublished|Creator" label="Sort by..." default="0" enable="True"/>
    </category>
 </settings>
