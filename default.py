@@ -14,6 +14,7 @@ from resources.directory import *
 from resources.webutils import *
 from resources.utilities import *
 from resources.downloadtools import *
+from resources.iofile import *
 
 
 def main_menu():
@@ -38,9 +39,15 @@ def main_menu():
 	addDir("[B]Emerson Arcadia[/B] (Archive.org)",'https://archive.org/details/emerson_arcadia_library?&sort='+get_sort_method()+'&page=1',1,'http://www.emuunlim.com/doteaters/Arcadia.gif',1,'http://i.ytimg.com/vi/j4o31uRZs3w/maxresdefault.jpg')
 	addDir("[B]Entex Adventure Vision[/B] (Archive.org)",'https://archive.org/details/adventurevision_library?&sort='+get_sort_method()+'&page=1',1,'https://c2.staticflickr.com/4/3273/5832604040_46164b3b04.jpg',1,'http://www.miniarcade.com/ebay/adventurevision3.jpg')
 	addDir("[B]Epoch Game Pocket Computer[/B] (Archive.org)",'https://archive.org/details/gamepocket_library?&sort='+get_sort_method()+'&page=1',1,'https://rfmp.files.wordpress.com/2011/06/250px-epoch_game_pocket_computer.jpg',1,'http://www.chrismcovell.com/GamePokekon/Epoch_System.jpg')
+	addDir("[B]Sinclair ZX Spectrum[/B] - Games (Archive.org)",'https://archive.org/details/zx_spectrum_library_games?&sort='+get_sort_method()+'&page=1',1,'http://www.c64vsspectrum.com/spectrum48k_jpg.jpg',1,'http://thegamesdb.net/banners/platform/fanart/4913-1.jpg')
+	addDir("[B]Sinclair ZX Spectrum[/B] - Applications (Archive.org)",'https://archive.org/details/zx_spectrum_library_applications?&sort='+get_sort_method()+'&page=1',1,'http://www.c64vsspectrum.com/spectrum48k_jpg.jpg',1,'http://thegamesdb.net/banners/platform/fanart/4913-1.jpg')
+	addDir("[B]Sinclair ZX Spectrum[/B] - Educational (Archive.org)",'https://archive.org/details/zx_spectrum_library_educational?&sort='+get_sort_method()+'&page=1',1,'http://www.c64vsspectrum.com/spectrum48k_jpg.jpg',1,'http://thegamesdb.net/banners/platform/fanart/4913-1.jpg')
+	
+	
+	
 	
 	#Single packs
-	addDir("[B]Sinclair ZX Spectrum[/B] (Archive.org)",'https://archive.org/details/Sinclair_ZX_Spectrum_TOSEC_2012_04_23',5,'http://www.c64vsspectrum.com/spectrum48k_jpg.jpg',1,'http://thegamesdb.net/banners/platform/fanart/4913-1.jpg')
+	addDir("[B]Sinclair ZX Spectrum[/B] ZIP (Archive.org)",'https://archive.org/details/Sinclair_ZX_Spectrum_TOSEC_2012_04_23',5,'http://www.c64vsspectrum.com/spectrum48k_jpg.jpg',1,'http://thegamesdb.net/banners/platform/fanart/4913-1.jpg')
 	addDir("[B]Atari 8-bit[/B] (Archive.org)",'https://archive.org/details/Atari_8_bit_TOSEC_2012_04_23',5,'http://gury.atari8.info/images/Atari_800xe_System_s1.jpg',1,'http://upload.wikimedia.org/wikipedia/commons/9/9f/Atari_800XL_Plain_White.jpg')
 	addDir("[B]Atari ST[/B] (Archive.org)",'https://archive.org/details/Atari_ST_TOSEC_2012_04_23',5,'http://jscustom.theoldcomputer.com/images/manufacturers_systems/Atari/ST/624674atarifalcon.jpg',1,'http://upload.wikimedia.org/wikipedia/commons/3/39/Atari_1040STf.jpg')
 	addDir("[B]Bandai Wonderswan[/B] (Archive.org)",'https://archive.org/details/Bandai_Wonderswan_TOSEC_2012_04_23',5,'http://jscustom.theoldcomputer.com/images/manufacturers_systems/Bandai/Wonderswan/590187wonderswan.jpg',1,'http://upload.wikimedia.org/wikipedia/commons/0/0f/Wonderswan_color-JD.jpg')
@@ -79,8 +86,34 @@ def main_menu():
 	
 	
 	
+def get_platform_folder(platform):
+	if xbmcvfs.exists(platformsave):
+		text = eval(readfile(platformsave))
+		if platform in text.keys():
+			return text[platform]
+		else: return False	
+	else: return False
 	
-	
+def save_platform_folder(platform,folder):
+	text = ''
+	if xbmcvfs.exists(platformsave):
+		text = eval(readfile(platformsave))
+	if text:
+		text[platform] = folder
+		save(platformsave,str(text))
+	else:
+		save(platformsave,str('{"'+platform+'":"'+folder+'"}'))
+	return
+		
+def get_destination_folder(platform):
+	platform_folder = get_platform_folder(platform)
+	if not platform_folder:
+		downloadPath = xbmcgui.Dialog().browse(int(3), translate(30022),'myprograms')
+		save_platform_folder(platform,downloadPath)
+	else:
+		downloadPath = platform_folder
+	destination_folder = downloadPath
+	return destination_folder
 	
 	
 	
@@ -121,6 +154,9 @@ def dos_box(url):
 			elif 'ngp_' in url:
 				console_fanart = 'http://i.imgur.com/4dPue.jpg'
 				addDir(translate(30002),'https://archive.org/details/ngp_library?and[]=',2,'',1,console_fanart)
+			elif 'sg_1000_' in url:
+				console_fanart = 'http://upload.wikimedia.org/wikipedia/commons/b/b8/Sega_SG-1000_Bock.jpg'
+				addDir(translate(30002),'https://archive.org/details/sg_1000_library?and[]=',2,'',1,console_fanart)
 			elif 'atari_7800_' in url:
 				console_fanart = 'http://thegamesdb.net/banners/platform/fanart/27-1.jpg'
 				addDir(translate(30002),'https://archive.org/details/atari_7800_library?and[]=',2,'',1,console_fanart)
@@ -157,8 +193,18 @@ def dos_box(url):
 			elif 'gamepocket_' in url:
 				console_fanart = 'http://www.chrismcovell.com/GamePokekon/Epoch_System.jpg'
 				addDir(translate(30002),'https://archive.org/details/gamepocket_library?and[]=',2,'',1,console_fanart)
-				
-				
+			elif 'zx_spectrum_library_games' in url:
+				console_fanart = 'http://thegamesdb.net/banners/platform/fanart/4913-1.jpg'
+				addDir(translate(30002),'https://archive.org/details/zx_spectrum_library_games?and[]=',2,'',1,console_fanart)
+			elif 'zx_spectrum_library_applications' in url:
+				console_fanart = 'http://thegamesdb.net/banners/platform/fanart/4913-1.jpg'
+				addDir(translate(30002),'https://archive.org/details/zx_spectrum_library_applications?and[]=',2,'',1,console_fanart)
+			elif 'zx_spectrum_library_applications' in url:
+				console_fanart = 'http://thegamesdb.net/banners/platform/fanart/4913-1.jpg'
+				addDir(translate(30002),'https://archive.org/details/zx_spectrum_library_educational?and[]=',2,'',1,console_fanart)	
+			elif 'zx_' in url:
+				console_fanart = 'http://thegamesdb.net/banners/platform/fanart/4913-1.jpg'
+				addDir(translate(30002),'https://archive.org/details/zx_spectrum_library_educational?and[]=',2,'',1,console_fanart)	
 			#Navigate to letter
 			addDir('[COLOR blue]'+translate(30020)+'[/COLOR]',url,7,console_fanart,1,console_fanart)	
 				
@@ -172,7 +218,7 @@ def dos_box(url):
 			for gameinfo in matchgames:
 				title = re.compile('title=".+?">(.+?)</a>').findall(gameinfo)
 				
-				ignore_list = ['sega_sms_','socrates_','superacan_','ngp_','atari_7800_','atari_5200','gx4000_','sg_1000','megaduck_','intellivision','mattelaquarius','channelf_','apfm1000_','emerson_arcadia_','adventurevision_','gamepocket_']
+				ignore_list = ['sega_sms_','socrates_','superacan_','ngp_','zx_','atari_7800_','atari_5200','gx4000_','sg_1000','megaduck_','intellivision','mattelaquarius','channelf_','apfm1000_','emerson_arcadia_','adventurevision_','gamepocket_']
 				ignore = False
 				for platform in ignore_list:
 					if platform in url: ignore = True
@@ -262,7 +308,7 @@ def archive_resolver(url):
 	files = source["files"]
 	rom = ''
 	for _file_ in files:
-		if _file_["name"].endswith('.zip') or _file_["name"].endswith('.bin') or _file_["name"].endswith('.cpr'):
+		if _file_["name"].endswith('.zip') or _file_["name"].endswith('.bin') or _file_["name"].endswith('.cpr') or _file_["name"].endswith('.z80'):
 			rom = _file_["name"]
 			break
 		else: pass
@@ -275,40 +321,214 @@ def archive_resolver(url):
 		
 	if rom:
 		download_url = "http://"+d1+dire+'/'+rom
-		if selfAddon.getSetting('download-folder') == '':
-			downloadPath = xbmcgui.Dialog().browse(int(3), 'Select Download Folder','myprograms')
-			selfAddon.setSetting('download-folder',downloadPath)
-		else: downloadPath = selfAddon.getSetting('download-folder')
+		if selfAddon.getSetting('download-mode') == '0':
+			if selfAddon.getSetting('download-folder') == '':
+				downloadPath = xbmcgui.Dialog().browse(int(3), translate(30022),'myprograms')
+				selfAddon.setSetting('download-folder',downloadPath)
+			else: downloadPath = selfAddon.getSetting('download-folder')
 		
-		if 'sg_' in download_url: destination_folder = os.path.join(downloadPath,'genesis')
-		elif 'gg_' in download_url: destination_folder = os.path.join(downloadPath,'gamegear')
-		elif 'msdos_' in download_url: destination_folder = os.path.join(downloadPath,'DOS')
-		elif 'atari_2600_' in download_url: destination_folder = os.path.join(downloadPath,'atari2600')
-		elif '_VTL' in download_url: destination_folder = os.path.join(downloadPath,'vtechcreativision')
-		elif 'socrates_' in download_url: destination_folder = os.path.join(downloadPath,'socrates')
-		elif 'sa_' in download_url: destination_folder = os.path.join(downloadPath,'superacan')
-		elif 'segasms_' in download_url: destination_folder = os.path.join(downloadPath,'segams')
-		elif 'ngp_' in download_url: destination_folder = os.path.join(downloadPath,'neogeopocket')
-		elif '_NTSC' in download_url: destination_folder = os.path.join(downloadPath,'atari7800')
-		elif '_Atari' in download_url: destination_folder= os.path.join(downloadPath,'atari5200')
-		elif 'gx4000_' in download_url: destination_folder =  os.path.join(downloadPath,'amstradgx4000')
-		elif '_Sega_' in download_url: destination_folder =  os.path.join(downloadPath,'segasg1000')
-		elif '_Sachen' in download_url or '_Commin' in download_url or '_Timlex' in download_url: destination_folder = os.path.join(downloadPath,'megaduck')
-		elif 'intv_' in download_url: destination_folder = os.path.join(downloadPath,'intellivision')
-		elif 'Mattel' in download_url or '_Microsoft' in download_url or '_proto' in download_url: destination_folder = os.path.join(downloadPath,'mattelaquarius')
-		elif '_Fairchild' in download_url or '_E5frog' in download_url or '_Riddle' in download_url or '_Zircon' in download_url: destination_folder = os.path.join(downloadPath,'channelF')
-		elif 'apfm1000' in download_url: destination_folder=os.path.join(downloadPath,'apfm1000')
-		elif 'arcadia_' in download_url: destination_folder=os.path.join(downloadPath,'arcadia')
-		elif 'advision_' in download_url: destination_folder=os.path.join(downloadPath,'adventurevision')
-		elif 'gamepocket' in download_url: destination_folder=os.path.join(downloadPath,'gamepocket')
+		elif selfAddon.getSetting('download-mode') == '2':
+			downloadPath = os.path.join(os.getenv("HOME"),'RetroPie','roms')
+		
+		if 'sg_' in download_url:
+			if selfAddon.getSetting('download-mode') == '0': destination_folder = os.path.join(downloadPath,'genesis')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("genesis")
+			elif selfAddon.getSetting('download-mode') == '2': destination_folder = os.path.join(downloadPath,'megadrive')
+		
+		elif 'gg_' in download_url: 
+			if selfAddon.getSetting('download-mode') == '0': destination_folder = os.path.join(downloadPath,'gamegear')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("gamegear")
+			elif selfAddon.getSetting('download-mode') == '2': destination_folder = os.path.join(downloadPath,'gamegear')
+			
+		elif 'msdos_' in download_url: 
+			if selfAddon.getSetting('download-mode') == '0': destination_folder = os.path.join(downloadPath,'DOS')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("dosbox")
+			elif selfAddon.getSetting('download-mode') == '2': destination_folder = os.path.join(downloadPath,'pc')
+		
+		elif 'atari_2600_' in download_url: 
+			if selfAddon.getSetting('download-mode') == '0': destination_folder = os.path.join(downloadPath,'atari2600')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("atari2600")
+			elif selfAddon.getSetting('download-mode') == '2': destination_folder = os.path.join(downloadPath,'atari2600')
+		
+		elif '_VTL' in download_url: 
+			if selfAddon.getSetting('download-mode')=='0': destination_folder = os.path.join(downloadPath,'vtechcreativision')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("vtechcreativision")
+			elif selfAddon.getSetting('download-mode')=='2':
+				opcao= xbmcgui.Dialog().yesno(translate(30000), translate(30021))
+				if opcao:
+					destination_folder = get_destination_folder("vtechcreativision")
+				else: sys.exit(0)
+		
+		elif 'socrates_' in download_url:
+			if selfAddon.getSetting('download-mode')=='0': destination_folder = os.path.join(downloadPath,'socrates')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("socrates")
+			elif selfAddon.getSetting('download-mode')=='2':
+				opcao= xbmcgui.Dialog().yesno(translate(30000), translate(30021))
+				if opcao:
+					destination_folder = get_destination_folder("socrates")
+				else: sys.exit(0)
+		
+		elif 'sa_' in download_url:
+			if selfAddon.getSetting('download-mode')=='0': destination_folder = os.path.join(downloadPath,'superacan')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("superacan")
+			elif selfAddon.getSetting('download-mode')=='2':
+				opcao= xbmcgui.Dialog().yesno(translate(30000), translate(30021))
+				if opcao:
+					destination_folder = get_destination_folder("superacan")
+				else: sys.exit(0)
+			
+		elif 'segasms_' in download_url: 
+			if selfAddon.getSetting('download-mode')=='0': destination_folder = os.path.join(downloadPath,'segams')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("mastersystem")
+			elif selfAddon.getSetting('download-mode')=='2': destination_folder = os.path.join(downloadPath,'mastersystem')
+			
+		elif 'zx_' in download_url: 
+			if selfAddon.getSetting('download-mode')=='0': destination_folder = os.path.join(downloadPath,'zxspectrum')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("zxspectrum")
+			elif selfAddon.getSetting('download-mode')=='2': destination_folder = os.path.join(downloadPath,'zxspectrum')
+			
+		elif 'ngp_' in download_url: 
+			if selfAddon.getSetting('download-mode')=='0': destination_folder = os.path.join(downloadPath,'neogeopocket')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("neogeopocket")
+			elif selfAddon.getSetting('download-mode')=='2': destination_folder = os.path.join(downloadPath,'neogeo')
+			
+		elif '_NTSC' in download_url: 
+			if selfAddon.getSetting('download-mode')=='0': destination_folder = os.path.join(downloadPath,'atari7800')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("atari7800")
+			elif selfAddon.getSetting('download-mode')=='2': destination_folder = os.path.join(downloadPath,'atari7800')
+		
+		elif '_Atari' in download_url:
+			if selfAddon.getSetting('download-mode')=='0': destination_folder= os.path.join(downloadPath,'atari5200')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("atari5200")
+			elif selfAddon.getSetting('download-mode')=='2': destination_folder= os.path.join(downloadPath,'atari800')
+			
+		elif 'gx4000_' in download_url:
+			if selfAddon.getSetting('download-mode')=='0': destination_folder =  os.path.join(downloadPath,'amstradgx4000')
+			elif selfAddon.getSetting('download-mode')=='2': destination_folder =  os.path.join(downloadPath,'amstradcpc')
+		
+		elif '_Sega_' in download_url:
+			if selfAddon.getSetting('download-mode')=='0': destination_folder =  os.path.join(downloadPath,'segasg1000')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("sg-1000")
+			elif selfAddon.getSetting('download-mode')=='2': destination_folder =  os.path.join(downloadPath,'sg-1000')
+		
+		elif '_Sachen' in download_url or '_Commin' in download_url or '_Timlex' in download_url: 
+			if selfAddon.getSetting('download-mode')=='0': destination_folder = os.path.join(downloadPath,'megaduck')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("megaduck")
+			elif selfAddon.getSetting('download-mode')=='2':
+				opcao= xbmcgui.Dialog().yesno(translate(30000), translate(30021))
+				if opcao:
+					destination_folder = get_destination_folder("megaduck")
+				else: sys.exit(0)
+			
+		elif 'intv_' in download_url:
+			if selfAddon.getSetting('download-mode')=='0': destination_folder = os.path.join(downloadPath,'intellivision')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("intellivision")
+			elif selfAddon.getSetting('download-mode')=='2': destination_folder = os.path.join(downloadPath,'intellivision')
+			
+		elif 'Mattel' in download_url or '_Microsoft' in download_url or '_proto' in download_url:
+			if selfAddon.getSetting('download-mode')=='0': destination_folder = os.path.join(downloadPath,'mattelaquarius')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("mattelaquarius")
+			elif selfAddon.getSetting('download-mode')=='2':
+				opcao= xbmcgui.Dialog().yesno(translate(30000), translate(30021))
+				if opcao:
+					destination_folder = get_destination_folder("mattelaquarius")
+				else: sys.exit(0)
+			
+		elif '_Fairchild' in download_url or '_E5frog' in download_url or '_Riddle' in download_url or '_Zircon' in download_url:
+			if selfAddon.getSetting('download-mode')=='0': destination_folder = os.path.join(downloadPath,'channelF')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("channelF")
+			elif selfAddon.getSetting('download-mode')=='2':
+				opcao= xbmcgui.Dialog().yesno(translate(30000), translate(30021))
+				if opcao:
+					destination_folder = get_destination_folder("channelF")
+				else: sys.exit(0)
+		
+		elif 'apfm1000' in download_url:
+			if selfAddon.getSetting('download-mode')=='0': destination_folder=os.path.join(downloadPath,'apfm1000')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("apfm1000")
+			elif selfAddon.getSetting('download-mode')=='2':
+				opcao= xbmcgui.Dialog().yesno(translate(30000), translate(30021))
+				if opcao:
+					destination_folder = get_destination_folder("apfm1000")
+				else: sys.exit(0)
+		
+		elif 'arcadia_' in download_url: 
+			if selfAddon.getSetting('download-mode')=='0': destination_folder=os.path.join(downloadPath,'arcadia')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("arcadia")
+			elif selfAddon.getSetting('download-mode')=='2':
+				opcao= xbmcgui.Dialog().yesno(translate(30000), translate(30021))
+				if opcao:
+					destination_folder = get_destination_folder("arcadia")
+				else: sys.exit(0)
+		
+		elif 'advision_' in download_url:
+			if selfAddon.getSetting('download-mode')=='0': destination_folder=os.path.join(downloadPath,'adventurevision')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("adventurevision")
+			elif selfAddon.getSetting('download-mode')=='2':
+				opcao= xbmcgui.Dialog().yesno(translate(30000), translate(30021))
+				if opcao:
+					destination_folder = get_destination_folder("adventurevision")
+				else: sys.exit(0)
+			
+		elif 'gamepocket' in download_url:
+			if selfAddon.getSetting('download-mode')=='0': destination_folder=os.path.join(downloadPath,'gamepocket')
+			elif selfAddon.getSetting('download-mode') == '1':
+				destination_folder = get_destination_folder("gamepocket")
+			elif selfAddon.getSetting('download-mode')=='2':
+				opcao= xbmcgui.Dialog().yesno(translate(30000), translate(30021))
+				if opcao:
+					destination_folder = get_destination_folder("gamepocket")
+				else: sys.exit(0)
 		
 		
 		
 		if not os.path.exists(destination_folder): xbmcvfs.mkdir(destination_folder)
 		
-		destination_file = os.path.join(destination_folder,rom)
+		if selfAddon.getSetting('modify-filename') == 'true':
+			extension = re.compile('\.(.*)').findall(rom)
+			if extension:
+				rom = name + '.' + extension[-1]
+				rom = rom.replace('[B]','').replace('[/B]','')
+		
+		
+		if selfAddon.getSetting('download-mode')=='2' or selfAddon.getSetting('modify-extension') == 'true':
+			if 'segasms_' in download_url:
+				destination_file = os.path.join(destination_folder,rom.replace('.bin','.sms'))
+			elif '_Sega_' in download_url:
+				destination_file = os.path.join(destination_folder,rom.replace('.bin','.sg'))
+			elif 'gg_' in download_url:
+				destination_file = os.path.join(destination_folder,rom.replace('.bin','.gg'))
+			else: destination_file = os.path.join(destination_folder,rom)
+		else:
+			destination_file = os.path.join(destination_folder,rom)
 		download_tools().Downloader(download_url,destination_file,translate(30007) + rom,translate(30000))
 		msgok(translate(30000),translate(30005) + destination_folder,translate(30006))
+		
+		#extract if zip and setting on
+		unzip_zips(destination_file)
+		
+		if selfAddon.getSetting('download-mode')=='2': 
+			msgok(translate(30000),translate(30023),translate(30024))
 		
 def read_details(name,url):
 	url = url.replace('/details/','/metadata/')
@@ -334,18 +554,59 @@ def get_zip_info(url,iconimage):
 			addDir('Download zip package ('+size+')',urltmp,6,iconimage,1,'',False)
 			
 def download_zip_package(name,url,iconimage):
-	if selfAddon.getSetting('download-folder') == '':
-		downloadPath = xbmcgui.Dialog().browse(int(3), 'Select Download Folder','myprograms')
-		selfAddon.setSetting('download-folder',downloadPath)
-	else: downloadPath = selfAddon.getSetting('download-folder')
-	download_subfolder = url.split('/')[4]
-	destination_folder = os.path.join(downloadPath,download_subfolder)
+	if selfAddon.getSetting('download-mode')=='0':
+		if selfAddon.getSetting('download-folder') == '':
+			downloadPath = xbmcgui.Dialog().browse(int(3), translate(30022),'myprograms')
+			selfAddon.setSetting('download-folder',downloadPath)
+		else: downloadPath = selfAddon.getSetting('download-folder')
+		download_subfolder = url.split('/')[4]
+		destination_folder = os.path.join(downloadPath,download_subfolder)
+	elif selfAddon.getSetting('download-mode') == '1':
+		download_subfolder = url.split('/')[4]
+		destination_folder = get_destination_folder(download_subfolder)
+	elif selfAddon.getSetting('download-mode') == '2':
+		downloadPath = os.path.join(os.getenv("HOME"),'RetroPie','roms')
+		if 'Sinclair ZX Spectrum' in name: destination_folder =  os.path.join(downloadPath,'zxspectrum')
+		elif 'Atari 8-bit' in name: destination_folder =  os.path.join(downloadPath,'atari800')
+		elif 'Atari ST' in name: destination_folder =  os.path.join(downloadPath,'atarist')
+		elif 'Magnavox Odyssey' in name: destination_folder =  os.path.join(downloadPath,'videopac')
+		elif 'NEC PC-Engine' in name: destination_folder =  os.path.join(downloadPath,'pcengine')
+		elif 'NEC SuperGrafx' in name: destination_folder =  os.path.join(downloadPath,'pcengine')
+		elif 'Nintendo Super Famicom' in name: destination_folder =  os.path.join(downloadPath,'snes')
+		elif 'Sega Mark III & Sega Master System' in name: destination_folder =  os.path.join(downloadPath,'mastersystem')
+		elif 'Sega MegaDrive' in name: destination_folder =  os.path.join(downloadPath,'megadrive')
+		elif 'Sega 32x' in name: destination_folder =  os.path.join(downloadPath,'sega32x')
+		elif 'Sony MSX MSX2+' in name: destination_folder =  os.path.join(downloadPath,'msx')
+		elif 'Amiga CDTV' in name: destination_folder =  os.path.join(downloadPath,'amiga')
+		elif 'Amstrad CPC' in name: destination_folder =  os.path.join(downloadPath,'amstradcpc')
+		elif 'Apple II' in name: destination_folder =  os.path.join(downloadPath,'apple2')
+		elif 'Commodore Amiga' in name: destination_folder =  os.path.join(downloadPath,'amiga')
+		elif 'Commodore' in name: destination_folder =  os.path.join(downloadPath,'c64')
+		else:
+			opcao= xbmcgui.Dialog().yesno(translate(30000), translate(30021))
+			if opcao:
+				destination_folder = get_destination_folder(name.replace('[B]','').replace('[/B]',''))
+			else: sys.exit(0)
+			
+		
 	if not os.path.exists(destination_folder): xbmcvfs.mkdir(destination_folder)
 	rom = url.split('/')[-1]
 	destination_file = os.path.join(destination_folder,rom)
 	download_tools().Downloader(url,destination_file,translate(30007) + rom,translate(30000))
 	msgok(translate(30000),translate(30005) + destination_folder,translate(30006))
 	
+	#extract zip and delete destination_file
+	unzip_zips(destination_file)
+		
+
+def unzip_zips(destination_file):
+	if selfAddon.getSetting('extract-zip') == 'true':
+		if xbmcvfs.exists(destination_file) and destination_file.endswith('.zip'):
+			if xbmc.getCondVisibility('system.platform.windows'): destination_folder = destination_file.replace(destination_file.split('\\')[-1],'')
+			else: destination_folder = destination_file.replace(destination_file.split('/')[-1],'')
+			extract(destination_file,destination_folder,dp=None,type='allWithProgress')
+			os.remove(destination_file)
+	return
 	
 def get_sort_method():
 	sorter = selfAddon.getSetting('sorter')

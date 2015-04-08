@@ -14,6 +14,7 @@ datapath = xbmc.translatePath(selfAddon.getAddonInfo('profile')).decode('utf-8')
 addonfolder = xbmc.translatePath(selfAddon.getAddonInfo('path')).decode('utf-8')
 artfolder = os.path.join(addonfolder,'resources','img')
 msgok = xbmcgui.Dialog().ok
+platformsave= os.path.join(datapath,'folders.txt')
 
 def translate(text):
       return selfAddon.getLocalizedString(text).encode('utf-8')

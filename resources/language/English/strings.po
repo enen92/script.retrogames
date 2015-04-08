@@ -93,6 +93,45 @@ msgctxt "#30020"
 msgid "[B]Navigate to letter...[/B]"
 ""
 
+msgctxt "#30021"
+msgid "There is no emulator for this platform in Retropie. Do you want to download?"
+""
+
+msgctxt "#30022"
+msgid "Select Download Folder"
+""
+
+msgctxt "#30023"
+msgid "For the changes to take effect"
+""
+
+msgctxt "#30024"
+msgid "You need to restart EmulationStation"
+""
+
+msgctxt "#30025"
+msgid "Modify filename for better post-processing"
+""
+
+msgctxt "#30026"
+msgid "Modify extension (for emulationstation emulators)"
+""
+
+msgctxt "#30027"
+msgid "Extract Zip Files"
+""
+
+msgctxt "#30028"
+msgid "Sort by..."
+""
+
+msgctxt "#30029"
+msgid "Download Mode"
+""
+
+msgctxt "#30030"
+msgid "Extracting zip file..."
+""
 
 
  
