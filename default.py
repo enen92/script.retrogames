@@ -543,7 +543,7 @@ def read_details(name,url):
 	window.getControl(5).setText(strip_tags(plot))
 		
 	
-def get_zip_info(url,iconimage):
+def get_zip_info(name,url,iconimage):
 	try:
 		page_source = get_page_source(url)
 	except: page_source = None
@@ -552,6 +552,7 @@ def get_zip_info(url,iconimage):
 		for size,urltmp in match:
 			if 'http://' not in urltmp or 'https://' not in urltmp: urltmp = 'http://archive.org'+urltmp
 			addDir('Download zip package ('+size+')',urltmp,6,iconimage,1,'',False)
+			selfAddon.setSetting('last-platform',name)
 			
 def download_zip_package(name,url,iconimage):
 	if selfAddon.getSetting('download-mode')=='0':
@@ -566,22 +567,23 @@ def download_zip_package(name,url,iconimage):
 		destination_folder = get_destination_folder(download_subfolder)
 	elif selfAddon.getSetting('download-mode') == '2':
 		downloadPath = os.path.join(os.getenv("HOME"),'RetroPie','roms')
-		if 'Sinclair ZX Spectrum' in name: destination_folder =  os.path.join(downloadPath,'zxspectrum')
-		elif 'Atari 8-bit' in name: destination_folder =  os.path.join(downloadPath,'atari800')
-		elif 'Atari ST' in name: destination_folder =  os.path.join(downloadPath,'atarist')
-		elif 'Magnavox Odyssey' in name: destination_folder =  os.path.join(downloadPath,'videopac')
-		elif 'NEC PC-Engine' in name: destination_folder =  os.path.join(downloadPath,'pcengine')
-		elif 'NEC SuperGrafx' in name: destination_folder =  os.path.join(downloadPath,'pcengine')
-		elif 'Nintendo Super Famicom' in name: destination_folder =  os.path.join(downloadPath,'snes')
-		elif 'Sega Mark III & Sega Master System' in name: destination_folder =  os.path.join(downloadPath,'mastersystem')
-		elif 'Sega MegaDrive' in name: destination_folder =  os.path.join(downloadPath,'megadrive')
-		elif 'Sega 32x' in name: destination_folder =  os.path.join(downloadPath,'sega32x')
-		elif 'Sony MSX MSX2+' in name: destination_folder =  os.path.join(downloadPath,'msx')
-		elif 'Amiga CDTV' in name: destination_folder =  os.path.join(downloadPath,'amiga')
-		elif 'Amstrad CPC' in name: destination_folder =  os.path.join(downloadPath,'amstradcpc')
-		elif 'Apple II' in name: destination_folder =  os.path.join(downloadPath,'apple2')
-		elif 'Commodore Amiga' in name: destination_folder =  os.path.join(downloadPath,'amiga')
-		elif 'Commodore' in name: destination_folder =  os.path.join(downloadPath,'c64')
+		plat = selfAddon.getSetting('last-platform')
+		if 'Sinclair ZX Spectrum' in plat: destination_folder =  os.path.join(downloadPath,'zxspectrum')
+		elif 'Atari 8-bit' in plat: destination_folder =  os.path.join(downloadPath,'atari800')
+		elif 'Atari ST' in plat: destination_folder =  os.path.join(downloadPath,'atarist')
+		elif 'Magnavox Odyssey' in plat: destination_folder =  os.path.join(downloadPath,'videopac')
+		elif 'NEC PC-Engine' in plat: destination_folder =  os.path.join(downloadPath,'pcengine')
+		elif 'NEC SuperGrafx' in plat: destination_folder =  os.path.join(downloadPath,'pcengine')
+		elif 'Nintendo Super Famicom' in plat: destination_folder =  os.path.join(downloadPath,'snes')
+		elif 'Sega Mark III & Sega Master System' in plat: destination_folder =  os.path.join(downloadPath,'mastersystem')
+		elif 'Sega MegaDrive' in plat: destination_folder =  os.path.join(downloadPath,'megadrive')
+		elif 'Sega 32x' in plat: destination_folder =  os.path.join(downloadPath,'sega32x')
+		elif 'Sony MSX MSX2+' in plat: destination_folder =  os.path.join(downloadPath,'msx')
+		elif 'Amiga CDTV' in plat: destination_folder =  os.path.join(downloadPath,'amiga')
+		elif 'Amstrad CPC' in plat: destination_folder =  os.path.join(downloadPath,'amstradcpc')
+		elif 'Apple II' in plat: destination_folder =  os.path.join(downloadPath,'apple2')
+		elif 'Commodore Amiga' in plat: destination_folder =  os.path.join(downloadPath,'amiga')
+		elif 'Commodore' in plat: destination_folder =  os.path.join(downloadPath,'c64')
 		else:
 			opcao= xbmcgui.Dialog().yesno(translate(30000), translate(30021))
 			if opcao:
@@ -758,7 +760,7 @@ elif mode==1: dos_box(url)
 elif mode==2: archive_search(url)
 elif mode==3: archive_resolver(url)
 elif mode==4: read_details(name,url)
-elif mode==5: get_zip_info(url,iconimage)
+elif mode==5: get_zip_info(name,url,iconimage)
 elif mode==6: download_zip_package(name,url,iconimage)
 elif mode==7: navigate_to_letter(url)
 

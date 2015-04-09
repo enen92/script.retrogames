@@ -11,5 +11,6 @@
       <setting id="modify-extension" type="bool" label="30026" default="false" />
       <setting id="extract-zip" type="bool" label="30027" default="false" />
       <setting id="extract-all-zips" type="bool" label="30031" default="false" />
+      <setting id="last-platform" type="text" default="" visible="false"/>
    </category>
 </settings>
