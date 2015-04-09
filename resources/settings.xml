@@ -10,5 +10,6 @@
       <setting id="modify-filename" type="bool" label="30025" default="true" />
       <setting id="modify-extension" type="bool" label="30026" default="false" />
       <setting id="extract-zip" type="bool" label="30027" default="false" />
+      <setting id="extract-all-zips" type="bool" label="30031" default="false" />
    </category>
 </settings>

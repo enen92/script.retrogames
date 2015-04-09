@@ -133,5 +133,9 @@ msgctxt "#30030"
 msgid "Extracting zip file..."
 ""
 
+msgctxt "#30031"
+msgid "Extract all zips inside the main zip file"
+""
+
 
  

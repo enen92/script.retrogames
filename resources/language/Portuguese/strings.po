@@ -135,4 +135,8 @@ msgctxt "#30030"
 msgid "Extracting zip file..."
 msgstr "Extraíndo ficheiro zip..."
 
+msgctxt "#30031"
+msgid "Extract all zips inside the main zip file"
+msgstr "Extrair todos os zips dentro do zip principal"
+
  

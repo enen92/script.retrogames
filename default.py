@@ -606,7 +606,62 @@ def unzip_zips(destination_file):
 			else: destination_folder = destination_file.replace(destination_file.split('/')[-1],'')
 			extract(destination_file,destination_folder,dp=None,type='allWithProgress')
 			os.remove(destination_file)
+			
+			if selfAddon.getSetting('extract-all-zips') == 'true':
+				main_folder_files = os.listdir(destination_folder)
+				if main_folder_files:
+					for ficheiro in main_folder_files:
+						if not os.path.isdir(os.path.join(destination_folder,ficheiro)) and ficheiro.endswith('.zip'):
+							dest = destination_folder
+							ziped = os.path.join(destination_folder,ficheiro)
+							extract(ziped,dest,dp=None,type='allWithProgress')
+							os.remove(ziped)
+							if selfAddon.getSetting('modify-extension') == 'true':
+								if 'Super_Famicom' in destination_file:
+									apply_rename(dest,'snes')
+						else:
+							sub_folder_files = os.listdir(os.path.join(destination_folder,ficheiro))
+							if sub_folder_files:
+								for subficheiro in sub_folder_files:
+									if not os.path.isdir(os.path.join(destination_folder,ficheiro,subficheiro)) and subficheiro.endswith('.zip'):
+										dest = os.path.join(destination_folder,ficheiro)
+										ziped = os.path.join(destination_folder,ficheiro,subficheiro)
+										extract(ziped,dest,dp=None,type='allWithProgress')
+										os.remove(ziped)
+									else:
+										sub_sub_folder_files = os.listdir(os.path.join(destination_folder,ficheiro,subficheiro))
+										if sub_sub_folder_files:
+											for subsubficheiro in sub_sub_folder_files:
+												if not os.path.isdir(os.path.join(destination_folder,ficheiro,subficheiro,subsubficheiro)) and subsubficheiro.endswith('.zip'):
+													dest = os.path.join(destination_folder,ficheiro,subficheiro)
+													ziped = os.path.join(destination_folder,ficheiro,subficheiro,subsubficheiro)
+													extract(ziped,dest,dp=None,type='allWithProgress')
+													os.remove(ziped)
+													if selfAddon.getSetting('modify-extension') == 'true':
+														if 'Super_Famicom' in destination_file:
+															apply_rename(dest,'snes')
+										
 	return
+
+
+def apply_rename(folder,platform):
+	all_files = os.listdir(folder)
+	if all_files:
+		for file_ in all_files:
+			if not os.path.isdir(os.path.join(folder,file_)):
+				if platform == 'snes':
+					if file_.endswith('.bin'):
+						save(os.path.join(folder,file_.replace('.bin','.smc')),readfile(os.path.join(folder,file_)))
+						os.remove(os.path.join(folder,file_))
+			else:
+				sub_files = os.listdir(folder,file_)
+				if sub_files:
+					for subfile in sub_files:
+						if platform == 'snes':
+							if subfile.endswith('.bin'):
+								save(os.path.join(folder,file_,subfie.replace('.bin','.smc')),readfile(os.path.join(folder,file_,subfile)))
+								os.remove(os.path.join(folder,file_,subfile))			
+
 	
 def get_sort_method():
 	sorter = selfAddon.getSetting('sorter')
